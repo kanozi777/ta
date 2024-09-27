@@ -5,7 +5,7 @@ function getValues() {
   // 実験回路の選択を取得(getLは関数リテラル)
   let getL = () => {
     let circuit = document.getElementById("circuit-select").value;
-    return circuit == "A" ? 29.2 : 30.0;
+    return circuit == "A" ? 29.4 : 30.0;
   };
   // //突然Str型としてrlが認識される事があったため、parseFloat()してる。
   const l = getL() * Math.pow(10, -3);
