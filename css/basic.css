@@ -1,0 +1,81 @@
+/*モバイルファースト*/
+/*出典元:https://saruwakakun.com/html-css/reference/h-design*/
+h1{
+    display: flex;
+    color: #364e96;
+    padding: 0.2em 0;
+    border-top: dashed 2px #364e96;  /*上線*/
+    border-bottom: dashed 2px #364e96;  /*上線*/
+}
+
+/*出典元:https://saruwakakun.com/html-css/reference/h-design*/
+h2{
+    display: flex;
+    background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}
+
+/*inputにスピンボタンを非表示にする*/
+/*Chrome,Safari*/
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+} 
+/*Firefox*/
+input[type="number"] { 
+    -moz-appearance:textfield; 
+} 
+/*ブロック要素*/
+div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+/*ボタンのデザイン*/
+div.button{
+    display: flex;
+    align-items: center;
+}
+
+/*入力部分のデザイン*/
+div.value{
+    display: inline-block;
+    align-items: center;
+    width: 100%;
+}
+
+label{
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+
+/*式表示部分のデザイン*/
+div.formula{
+    display: flex;
+    align-items: left;
+    margin: 8px;
+}
+
+/*テーブルデザイン*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td{
+    border: solid 1px black;
+    width: 200px;
+    text-align: center;
+}
+/*出力結果部分のセルのデザイン*/
+table td:nth-child(2){
+    border: 2px solid black;
+}
+
+/*製作者情報*/
+div.authorInfo{
+    display: inline-block;
+    width: 100%;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Jago39">
+	<meta name="Description" content="共振周波数を計算するページ">
+	<!--レスポンシブ化の準備-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=1" />
+	<!--CSSファイルの読み込み-->
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+	<link rel="stylesheet" type="text/css" href="css/pc.css">
+	<!--計算機スクリプトの読み込み-->
+	<script src="js/calculateFq.js"></script>
+	<!--mathjaxの読み込み-->
+	<script type="text/javascript" async
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+		</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  extensions: ["tex2jax.js"],
+		  jax: ["input/TeX", "output/HTML-CSS"],
+		  tex2jax: {
+			inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			processEscapes: true
+		  },
+		  "HTML-CSS": { 
+			availableFonts: ["TeX"],
+			undefinedFamily: "'Raleway', Helvetica, Arial, sans-serif"
+		   }
+		});
+	  </script>
+	<title>[電気工学実験1]共振回路の共振周波数を計算する</title>
+</head>
+
+<body>
+	<h1>[電気工学実験1]<br class="br-display">共振周波数の計算機</h1>
+	<h2>共通項目</h2>
+	<!--実験回路の選択-->
+	<div class="value">
+		<label for="circuit-select">実験回路</label>
+		<select name="circuit" id="circuit-select">
+			<option value="A">実験回路A</option>
+			<option value="B">実験回路B</option>
+		</select>
+	</div>
+	<!--抵抗R1の値の入力-->
+	<div class="value">
+		<label for="r1Value">
+			抵抗$R_{1}[\Omega]$の値
+		</label>
+		<input id="r1Value" type="number" name="r1Value" min="0">
+	</div>
+	<!--抵抗RLの値の入力-->
+	<div class="value">
+		<label for="rlValue">
+			抵抗$R_{L}[\Omega]$の値
+		</label>
+		<input id="rlValue" type="number" name="rlValue" min="0">
+	</div>
+	<!--コンデンサ容量の入力-->
+	<div class="value">
+		<label for="cValue">
+			コンデンサ$C[nF]$の値
+		</label>
+		<input id="cValue" type="number" name="cValue" min="0">
+	</div>
+	<!--直列共振回路の場合-->
+	<h2>直列共振回路</h2>
+	<!--計算式-->
+	<div class="formula">$共振周波数f_{0}=\frac{1}{2\pi\sqrt{LC}}$</div>
+	<!--計算ボタン-->
+	<div class="button">
+		<input type="button" value=" 計算" id="seriesCalButton" onclick="calculateSeriesFq()">
+	</div>
+	<!--結果を表にして表示-->
+	<div>
+		<table>
+			<tr>
+				<td>共振周波数$f_{0}$</td>
+				<td id="seriesResult">0.00Hz</td>
+			</tr>
+		</table>
+	</div>
+
+	<!--並列共振回路の場合-->
+	<h2>並列共振回路</h2>
+	<!--計算式-->
+	<div class="formula">
+		<p>反共振周波数$f_{0}=\frac{\sqrt{1/{LC}-R^2/L^2}}{2\pi}$</p>
+	</div>
+	<div class="formula">
+		<p>電流最小となる周波数<br class="br-display">$f_{min}=\frac{\sqrt{\sqrt{(1+2CR^2/L)}/LC-R^2/L^2}}{2\pi}$</p>
+	</div>
+	<!--可変抵抗の値の入力-->
+	<div class="value">
+		<label for="r2Value">
+			抵抗$R_{2}[\Omega]$の値
+		</label>
+		<input id="r2Value" type="number" name="r2Value" min="0" placeholder="0">
+	</div>
+	<!--計算ボタン-->
+	<div class="button">
+		<input type="button" value=" 計算" id="parallelCalButton" onclick="calculateParallelFq()">
+	</div>
+	<!--結果を表にして表示-->
+	<div>
+		<table>
+			<tr>
+				<td>反共振周波数$f_{0}$</td>
+				<td id="parallelF0Result">0.00Hz</td>
+			</tr>
+			<tr>
+				<td>電流最小となる周波数$f_{min}$</td>
+				<td id="parallelFminResult">0.00Hz</td>
+			</tr>
+		</table>
+	</div>
+	<!--製作者-->
+	<div class="authorInfo">
+		<h2>製作者</h2>
+		<p>製作者: Jago39(五十嵐研究室)</p>
+		<p>計算機GitHubレポジトリ: <br class="br-display"><a
+				href="https://github.com/ateruimashin/experimentTA">https://github.com/ateruimashin/experimentTA</a></p>
+	</div>
+</body>
+
+</html>

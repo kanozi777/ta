@@ -1,0 +1,12 @@
+@media screen and (min-width: 480px){
+    .br-display{
+        display: none;
+    }
+    div{
+        width: 500px;
+    }
+    /*入力部分のデザイン*/
+    div.value{
+        width: 60%;
+    }
+}
